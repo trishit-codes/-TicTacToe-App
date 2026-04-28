@@ -1,6 +1,7 @@
 package tictactoe;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class TicTacToe {
 
@@ -40,10 +41,20 @@ public class TicTacToe {
         return symbols;
     }
 
+    static int getUserInput(Scanner scanner) {
+        System.out.print("Enter slot number (1-9): ");
+        int slot = scanner.nextInt();
+        return slot;
+    }
+
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
         char[][] board = new char[3][3];
         initializeBoard(board);
         displayBoard(board);
         char[] symbols = performToss();
+        int slot = getUserInput(scanner);
+        System.out.println("You selected slot: " + slot);
+        scanner.close();
     }
 }
